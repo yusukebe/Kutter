@@ -41,5 +41,10 @@ __PACKAGE__->has_many(
     { "foreign.user_name" => "self.name" }
 );
 
+sub permalink {
+    my $self = shift;
+    return "http://twitter.com/" . $self->name;
+}
+
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;
