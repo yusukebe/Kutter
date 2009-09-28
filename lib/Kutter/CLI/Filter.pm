@@ -32,7 +32,7 @@ sub parse {
     my $res = $self->service->get( { sentence => $str } );
     my $ref = $res->parse_response();
 
-    my ( $eat_chunk_id, $food_name );
+    my ( $eat_chunk_id, $food_name ) = ('','');
 
     my @chunks = @{ $ref->{Result}{ChunkList}{Chunk} };
     for my $chunk (@chunks) {
@@ -64,11 +64,16 @@ sub parse {
     }
 
     if ( $eat_chunk_id && !$food_name ) {
-        for my $chunk (@chunks) {
-            if ( $chunk->{Dependency} == $eat_chunk_id ) {
-                for my $morphem ( @{ $chunk->{MorphemList}{Morphem} } ) {
+        my $flag = 0;
+        for my $chunk (reverse @chunks) {
+            if ( $chunk->{Dependency} == $eat_chunk_id && !$flag ) {
+                for my $morphem (
+                    reverse @{ $chunk->{MorphemList}{Morphem} } ) {
                     if ( $morphem->{POS} =~ /名詞/ ) {
-                        $food_name .= $morphem->{Baseform};
+                        $food_name = $morphem->{Baseform} . $food_name;
+                        $flag = 1;
+                    }else{
+                        return $food_name if $flag;
                     }
                 }
             }

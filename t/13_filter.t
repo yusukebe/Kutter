@@ -17,4 +17,5 @@ $str = 'お腹がすいたので、カレーライスを食べた。';
 is( $filter->parse( $str ), 'カレーライス', encode('utf8', $str ) );
 $str = '私は、フルーツタルトしか食べたこと無い。';
 is( $filter->parse( $str ), 'フルーツタルト', encode('utf8', $str ) );
-
+$str = '今日はゆで卵の黄身を食べたよ！';
+is( $filter->parse( $str ), '黄身', encode('utf8', $str ) );
