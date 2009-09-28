@@ -1,7 +1,5 @@
 package Kutter::API::Role;
 use Moose::Role;
-use Path::Class;
-use FindBin;
 use Kutter::Web;
 
 #xxx
