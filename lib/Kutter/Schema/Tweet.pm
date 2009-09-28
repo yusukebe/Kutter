@@ -43,6 +43,10 @@ __PACKAGE__->set_primary_key("id");
 # Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-28 21:04:51
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:wdefDg1uv/rcCuLXqa29YA
 
+#xxx
+__PACKAGE__->add_columns(
+    created_on => { data_type => 'datetime', timezone => "Asia/Tokyo" }
+);
 
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;
