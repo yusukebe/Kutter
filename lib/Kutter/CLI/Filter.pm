@@ -49,8 +49,8 @@ sub parse {
                         if ( $chunk->{MorphemList}{Morphem}[$count]->{POS} =~
                             /名詞/ )
                         {
-                            $food_name .=
-                              $chunk->{MorphemList}{Morphem}[$count]{Baseform};
+                            $food_name =
+                              $chunk->{MorphemList}{Morphem}[$count]{Baseform} . $food_name;
                         }
                         else {
                             last;
