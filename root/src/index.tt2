@@ -1,6 +1,6 @@
 <h2>最近のKutter</h2>
 [% WHILE ( tweet = tweets.next ) -%]
 <p>
-[% tweet.user_name | html %]: [% tweet.body -%] at [% tweet.created_on.hms(':') %]
+[% tweet.user_name | html %]: [% tweet.body -%] at <a href="[% tweet.permalink | html %]">[% tweet.created_on.hms(':') %]</a>
 </p>
 [% END -%]

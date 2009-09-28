@@ -48,5 +48,10 @@ __PACKAGE__->add_columns(
     created_on => { data_type => 'datetime', timezone => "Asia/Tokyo" }
 );
 
+sub permalink {
+    my $self = shift;
+    return sprintf "http://twitter.com/%s/status/%s", $self->user_name, $self->id;
+}
+
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;
