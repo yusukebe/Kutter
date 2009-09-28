@@ -15,14 +15,14 @@ no Moose;
 
 sub _build_service {
     my $self   = shift;
-    my $xs     = XML::Simple->new( ForceArray => [ 'Chunk', 'Morphem' ] );
+    my $xs     = XML::Simple->new( ForceArray => [ qw/Chunk Morphem/ ] );
     my $parser = WebService::Simple::Parser::XML::Simple->new( xs => $xs );
     return WebService::Simple->new(
         base_url => 'http://jlp.yahooapis.jp/DAService/V1/parse',
         param    => {
             appid           => $self->appid,
-            response_parser => $parser,
-        }
+        },
+        response_parser => $parser,
     );
 }
 
