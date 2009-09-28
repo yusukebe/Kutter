@@ -1,0 +1,6 @@
+<h2>最近のKutter</h2>
+[% WHILE ( tweet = tweets.next ) -%]
+<p>
+[% tweet.user_name | html %]: [% tweet.body -%]
+</p>
+[% END -%]
