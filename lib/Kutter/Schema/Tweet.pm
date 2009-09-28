@@ -48,6 +48,11 @@ __PACKAGE__->add_columns(
     created_on => { data_type => 'datetime', timezone => "Asia/Tokyo" }
 );
 
+__PACKAGE__->belongs_to(
+    'user' => 'Kutter::Schema::User',
+    { "foreign.name" => "self.user_name" }
+);
+
 sub permalink {
     my $self = shift;
     return sprintf "http://twitter.com/%s/status/%s", $self->user_name, $self->id;

@@ -36,6 +36,10 @@ __PACKAGE__->set_primary_key("name");
 # Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-28 21:04:51
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:H0A1mALr2orJ33h4dig4hg
 
+__PACKAGE__->has_many(
+    'tweets' => 'Kutter::Schema::Tweet',
+    { "foreign.user_name" => "self.name" }
+);
 
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;
