@@ -7,7 +7,7 @@ my $yahoo_appid = $ENV{YAHOO_APPID};
 if( ! $yahoo_appid ){
     plan( skip_all => 'Please set set YAHOO_APPID to enable this test' );
 }else{
-    plan( tests => '10' );
+    plan( tests => '11' );
 }
 
 use_ok('Kutter::CLI::Filter');
@@ -31,3 +31,7 @@ $str = '楽しみにしていたワイン飲みに行けなかったけど、た
 is( $filter->parse( $str ), 'たこ焼き', encode('utf8', $str ) );
 $str = '真っ直ぐ帰りたくなくて、ファミマでファミチキ買って食べた。';
 is( $filter->parse( $str ), 'ファミチキ', encode('utf8', $str ) );
+$str = 'チキンタツタ食べた。腹が痛くなった。';
+is( $filter->parse( $str ), 'チキンタツタ', encode('utf8', $str ) );
+$str = 'そば食べた!! ';
+is( $filter->parse( $str ), 'そば', encode('utf8', $str ) );

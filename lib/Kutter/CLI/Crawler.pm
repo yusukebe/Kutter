@@ -54,7 +54,7 @@ sub do_filtering {
     return unless $food_name;
     my $schema = Kutter::API::DB->schema;
     my $food = $schema->resultset('Food')->find_or_create({ name => $food_name, tweet_id => $tweet->id });
-    warn $food->name . " is found or created!\n";
+    warn $food->tweet_id . " : " . $food->name . " is found or created!\n";
     return $food;
 }
 

@@ -12,6 +12,6 @@ CREATE TABLE tweet (
 );
 
 CREATE TABLE food (
-       name  VARCHAR(255) PRIMARY KEY,
-       tweet_id INTEGER NOT NULL
+       tweet_id INTEGER PRIMARY KEY,
+       name  VARCHAR(255) NOT NULL
 );
