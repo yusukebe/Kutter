@@ -11,7 +11,7 @@ sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
     my $page = $c->req->param('page') || 1;
     $c->stash->{tweets} = $c->model('API')->get_recent_tweets( $page );
-    $c->stash->{cloud}  = $c->model('API')->get_food_tagcloud();
+    $c->stash->{cloud}  = $c->model('API')->get_food_tagcloud( $c->uri_for('/food/') );
 }
 
 sub default :Path {
