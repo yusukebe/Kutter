@@ -1,6 +1,7 @@
 package Kutter::API;
 use Moose;
 use Kutter::API::DB;
+use Encode;
 use HTML::TagCloud;
 use URI::Escape;
 
@@ -38,7 +39,7 @@ sub get_food_tagcloud {
     while ( my $food = $foods->next ) {
         $cloud->add(
             $food->name,
-            URI::Escape::uri_escape_utf8( $food->name ),
+            URI::Escape::uri_escape_utf8( decode('utf8', $food->name) ),
             $food->get_column('count')
         );
     }
