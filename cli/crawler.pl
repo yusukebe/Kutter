@@ -9,6 +9,6 @@ use Kutter::CLI::Filter;
 
 my $feed_reader = Kutter::CLI::FeedReader->new();
 my $filter = Kutter::CLI::Filter->new( appid => 'your appid of YAHOO API');
-my $crawler = Kutter::CLI::Crawler->new( feed_reader => $feed_reader );
+my $crawler = Kutter::CLI::Crawler->new( feed_reader => $feed_reader, filter => $filter );
 
 $crawler->run();
