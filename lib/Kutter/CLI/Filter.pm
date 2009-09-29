@@ -29,6 +29,7 @@ sub _build_service {
 sub parse {
     my ( $self, $str ) = @_;
     Carp::croak('Sentence Text is requred!') unless $str;
+    
     my $res = $self->service->get( { sentence => $str } );
     my $ref = $res->parse_response();
 
@@ -56,8 +57,8 @@ sub parse {
                             last;
                         }
                     }
-                    last;
                 }
+                last if $food_name;
                 $count++;
             }
         }
