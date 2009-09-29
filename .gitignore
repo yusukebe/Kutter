@@ -12,3 +12,4 @@ nytprof
 .DS_Store
 db/kutter.db
 *~
+cli/crawler_local.pl
