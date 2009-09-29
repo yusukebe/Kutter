@@ -23,6 +23,7 @@ sub get_recent_tweets {
 
 sub get_food_tagcloud {
     my ( $self, $base_url ) = @_;
+    $base_url ||= '';
     my $schema    = Kutter::API::DB->schema;
     my $foods     = $schema->resultset('Food')->search(
         {},
