@@ -2,7 +2,8 @@
 <html>
  <head>
   <title>[% template.title or site.title %]</title>
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/fonts/fonts-min.css&amp;2.8.0r4/build/grids/grids-min.css"> 
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/fonts/fonts-min.css&amp;2.8.0r4/build/grids/grids-min.css">
+  <link rel="stylesheet" type="text/css" href="[% base %]static/css/kutter.css">
  </head>
  <body>
 [% content %]
