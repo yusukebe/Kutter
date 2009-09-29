@@ -21,6 +21,13 @@ sub get_recent_tweets {
     );
 }
 
+sub get_foods {
+    my ( $self, $name ) = @_;
+    my $schema = Kutter::API::DB->schema;
+    return $schema->resultset('Food')
+      ->search( { name => $name }, { order_by => 'tweet_id DESC' } );
+}
+
 sub get_food_tagcloud {
     my ( $self, $base_url ) = @_;
     $base_url ||= '';

@@ -1,0 +1,4 @@
+[% WHILE ( food = foods.next ) -%]
+[% SET tweet = food.tweet -%]
+[% INCLUDE module_tweet.tt2 %]
+[% END -%]
