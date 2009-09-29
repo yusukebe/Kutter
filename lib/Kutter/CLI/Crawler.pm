@@ -1,9 +1,11 @@
 package Kutter::CLI::Crawler;
 use Moose;
 use Kutter::CLI::FeedReader;
+use Kutter::CLI::Filter;
 use Kutter::API::DB;
 
 has 'feed_reader' => ( is => 'rw', isa => 'Kutter::CLI::FeedReader', required => 1 );
+has 'filter' => ( is => 'rw', isa => 'Kutter::CLI::Fileter' );
 
 no Moose;
 
@@ -40,8 +42,12 @@ sub run {
             created_on => $tweet->date,
         });
         warn $tweet_inserted->id . " is found or created!\n";
-
+        $self->do_filtering( $tweet_inserted );
     }
+}
+
+sub do_filtering {
+    my ($self, $tweet_inserted) = @_;
 }
 
 1;
