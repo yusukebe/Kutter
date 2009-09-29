@@ -3,6 +3,7 @@ package Kutter::Web::Controller::Root;
 use strict;
 use warnings;
 use parent 'Catalyst::Controller';
+use Data::Page::Navigation;
 
 __PACKAGE__->config->{namespace} = '';
 

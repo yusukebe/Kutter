@@ -7,3 +7,6 @@
 [% tweet.body -%] at <a href="[% tweet.permalink | html %]">[% tweet.created_on.hms(':') %]</a>
 </p>
 [% END -%]
+
+[% SET pager = tweets.pager -%]
+[% INCLUDE module_pager.tt2 %]

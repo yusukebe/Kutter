@@ -1,0 +1,16 @@
+<div id="pager">
+  [% IF pager.previous_page -%]
+  <a href="[% c.req.uri_with( page => pager.previous_page ) | html %]" rel="prev">&laquo; prev</a>&nbsp;
+  [%- END -%]
+  [% FOREACH num = pager.pages_in_navigation -%]
+  [% IF num == pager.current_page -%]
+  &nbsp;<span>[% num %]</span>&nbsp;
+  [% ELSE -%]
+  &nbsp;<a href="[% c.req.uri_with( page => num ) | html %]">[% num %]</a>&nbsp;
+  [% END -%]
+  [% END -%]
+  [% IF pager.next_page -%]
+  <a href="[% c.req.uri_with( page => pager.next_page ) | html %]" rel="next">next &raquo;</a>
+  [% END %]
+</div>
+<!-- /pager -->
