@@ -13,7 +13,5 @@ CREATE TABLE tweet (
 
 CREATE TABLE food (
        name  VARCHAR(255) PRIMARY KEY,
-       eat_count INTEGER DEFAULT 1,
-       created_on DATETIME NOT NULL,
-       updated_on DATETIME NOT NULL
+       tweet_id INTEGER NOT NULL
 );

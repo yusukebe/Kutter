@@ -3,9 +3,10 @@ use Moose;
 use Kutter::CLI::FeedReader;
 use Kutter::CLI::Filter;
 use Kutter::API::DB;
+use Encode;
 
 has 'feed_reader' => ( is => 'rw', isa => 'Kutter::CLI::FeedReader', required => 1 );
-has 'filter' => ( is => 'rw', isa => 'Kutter::CLI::Fileter' );
+has 'filter' => ( is => 'rw', isa => 'Kutter::CLI::Filter' );
 
 no Moose;
 
@@ -42,12 +43,14 @@ sub run {
             created_on => $tweet->date,
         });
         warn $tweet_inserted->id . " is found or created!\n";
-        $self->do_filtering( $tweet_inserted );
+        $self->do_filtering( $tweet );
     }
 }
 
 sub do_filtering {
-    my ($self, $tweet_inserted) = @_;
+    my ($self, $tweet) = @_;
+    return unless $self->filter;
+    my $food_name = $self->filter->parse( decode('utf8', $tweet->title ) );
 }
 
 1;

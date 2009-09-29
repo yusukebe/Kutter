@@ -15,18 +15,9 @@ __PACKAGE__->add_columns(
     is_nullable => 1,
     size => 255,
   },
-  "eat_count",
-  { data_type => "INTEGER", default_value => 1, is_nullable => 1, size => undef },
-  "created_on",
+  "tweet_id",
   {
-    data_type => "DATETIME",
-    default_value => undef,
-    is_nullable => 0,
-    size => undef,
-  },
-  "updated_on",
-  {
-    data_type => "DATETIME",
+    data_type => "INTEGER",
     default_value => undef,
     is_nullable => 0,
     size => undef,
@@ -35,8 +26,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("name");
 
 
-# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-29 12:12:02
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:n3KKR+AGhRvnD1h5xr6lxA
+# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-29 12:28:34
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qfp1Lp+6edtInSFixupr9Q
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration
