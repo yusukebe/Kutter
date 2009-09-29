@@ -1,7 +1,9 @@
-<div id="header">[% PROCESS site/header %]</div>
-
-<div id="content">
+<div id="doc2" class="yui-t7">
+<div id="hd">[% PROCESS site/header %]</div>
+<div id="bd">
+<div class="yui-g">
 [% content %]
 </div>
-
-<div id="footer">[% PROCESS site/footer %]</div>
+</div>
+<div id="ft">[% PROCESS site/footer %]</div>
+</div>

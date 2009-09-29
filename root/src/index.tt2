@@ -3,7 +3,7 @@
 <p>
 <img src="[% tweet.user.image_url | html %]" alt="" width="48" height="48" />
 <a href="[% tweet.user.permalink | html %]">[% tweet.user_name | html %]</a>:
-<strong>[% tweet.food.name | html %]</strong>
+[% IF tweet.food %]<strong>[% tweet.food.name | html %]</strong>[% END %]
 [% tweet.body -%] at <a href="[% tweet.permalink | html %]">[% tweet.created_on.hms(':') %]</a>
 </p>
 [% END -%]
