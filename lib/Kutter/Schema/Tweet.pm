@@ -53,6 +53,11 @@ __PACKAGE__->belongs_to(
     { "foreign.name" => "self.user_name" }
 );
 
+__PACKAGE__->might_have(
+    'food' => 'Kutter::Schema::Food',
+    { "foreign.tweet_id" => "self.id" }
+);
+
 sub permalink {
     my $self = shift;
     return sprintf "http://twitter.com/%s/status/%s", $self->user_name, $self->id;
