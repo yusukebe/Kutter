@@ -51,6 +51,11 @@ sub do_filtering {
     my ($self, $tweet) = @_;
     return unless $self->filter;
     my $food_name = $self->filter->parse( decode('utf8', $tweet->title ) );
+    return unless $food_name;
+    my $schema = Kutter::API::DB->schema;
+    my $food = $schema->resultset('Food')->find_or_create({ name => $food_name, tweet_id => $tweet->id });
+    warn $food->name . " is found or created!\n";
+    return $food;
 }
 
 1;
