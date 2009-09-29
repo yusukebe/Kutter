@@ -10,3 +10,10 @@ CREATE TABLE tweet (
        user_name VARCHAR(255) NOT NULL,
        created_on DATETIME NOT NULL
 );
+
+CREATE TABLE food (
+       name  VARCHAR(255) PRIMARY KEY,
+       eat_count INTEGER DEFAULT 1,
+       created_on DATETIME NOT NULL,
+       updated_on DATETIME NOT NULL
+);

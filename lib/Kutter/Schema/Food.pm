@@ -1,4 +1,4 @@
-package Kutter::Schema::User;
+package Kutter::Schema::Food;
 
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use warnings;
 use base 'DBIx::Class';
 
 __PACKAGE__->load_components("UTF8Columns", "InflateColumn::DateTime", "Core");
-__PACKAGE__->table("user");
+__PACKAGE__->table("food");
 __PACKAGE__->add_columns(
   "name",
   {
@@ -15,12 +15,14 @@ __PACKAGE__->add_columns(
     is_nullable => 1,
     size => 255,
   },
-  "image_url",
+  "eat_count",
+  { data_type => "INTEGER", default_value => 1, is_nullable => 1, size => undef },
+  "created_on",
   {
-    data_type => "VARCHAR",
+    data_type => "DATETIME",
     default_value => undef,
     is_nullable => 0,
-    size => 255,
+    size => undef,
   },
   "updated_on",
   {
@@ -34,17 +36,8 @@ __PACKAGE__->set_primary_key("name");
 
 
 # Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-29 12:12:02
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:y1c0b4lM/f0uB+my0U03Mw
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:n3KKR+AGhRvnD1h5xr6lxA
 
-__PACKAGE__->has_many(
-    'tweets' => 'Kutter::Schema::Tweet',
-    { "foreign.user_name" => "self.name" }
-);
-
-sub permalink {
-    my $self = shift;
-    return "http://twitter.com/" . $self->name;
-}
 
 # You can replace this text with custom content, and it will be preserved on regeneration
 1;
