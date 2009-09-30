@@ -3,10 +3,11 @@
 use strict;
 use warnings;
 use FindBin;
+use lib ( "$FindBin::Bin/../lib" );
 use DBIx::Class::Schema::Loader qw/make_schema_at/;
+use Kutter::Web; #xxx
 
 my $schema_class = "Kutter::Schema";
-my $connect_info = [ "dbi:SQLite:dbname=$FindBin::Bin/kutter.db"];
 
 make_schema_at(
     $schema_class,
@@ -15,5 +16,5 @@ make_schema_at(
         dump_directory => File::Spec->catfile( "$FindBin::Bin/../lib" ),
         debug          => 1,
     },
-    $connect_info,
+    Kutter::Web->config->{connect_info},
 );

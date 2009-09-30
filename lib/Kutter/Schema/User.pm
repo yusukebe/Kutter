@@ -12,7 +12,7 @@ __PACKAGE__->add_columns(
   {
     data_type => "VARCHAR",
     default_value => undef,
-    is_nullable => 1,
+    is_nullable => 0,
     size => 255,
   },
   "image_url",
@@ -27,14 +27,14 @@ __PACKAGE__->add_columns(
     data_type => "DATETIME",
     default_value => undef,
     is_nullable => 0,
-    size => undef,
+    size => 19,
   },
 );
 __PACKAGE__->set_primary_key("name");
 
 
-# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-29 13:40:16
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:yM8PYDJM8W6uiQJvcWriKQ
+# Created by DBIx::Class::Schema::Loader v0.04005 @ 2009-09-30 14:15:00
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:auwGF5vbwybCLwFUYN3tFw
 
 __PACKAGE__->has_many(
     'tweets' => 'Kutter::Schema::Tweet',

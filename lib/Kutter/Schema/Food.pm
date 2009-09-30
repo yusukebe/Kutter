@@ -9,12 +9,7 @@ __PACKAGE__->load_components("UTF8Columns", "InflateColumn::DateTime", "Core");
 __PACKAGE__->table("food");
 __PACKAGE__->add_columns(
   "tweet_id",
-  {
-    data_type => "INTEGER",
-    default_value => undef,
-    is_nullable => 1,
-    size => undef,
-  },
+  { data_type => "BIGINT", default_value => undef, is_nullable => 0, size => 20 },
   "name",
   {
     data_type => "VARCHAR",
@@ -26,8 +21,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("tweet_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-29 13:40:16
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:5C9TsvziTDHAzh9UlYEywg
+# Created by DBIx::Class::Schema::Loader v0.04005 @ 2009-09-30 14:15:00
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ma55pa1G3M3VrfEEkZcjDw
 
 __PACKAGE__->has_one(
     'tweet' => 'Kutter::Schema::Tweet',

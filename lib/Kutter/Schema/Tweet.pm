@@ -9,18 +9,13 @@ __PACKAGE__->load_components("UTF8Columns", "InflateColumn::DateTime", "Core");
 __PACKAGE__->table("tweet");
 __PACKAGE__->add_columns(
   "id",
-  {
-    data_type => "INTEGER",
-    default_value => undef,
-    is_nullable => 1,
-    size => undef,
-  },
+  { data_type => "BIGINT", default_value => undef, is_nullable => 0, size => 20 },
   "body",
   {
     data_type => "TEXT",
     default_value => undef,
     is_nullable => 0,
-    size => undef,
+    size => 65535,
   },
   "user_name",
   {
@@ -34,14 +29,14 @@ __PACKAGE__->add_columns(
     data_type => "DATETIME",
     default_value => undef,
     is_nullable => 0,
-    size => undef,
+    size => 19,
   },
 );
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.04006 @ 2009-09-29 13:40:16
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:xcE3nDHQgiYURLEN2ZYRIg
+# Created by DBIx::Class::Schema::Loader v0.04005 @ 2009-09-30 14:15:00
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:uAwUH7Xv5RYWmKbkMUaAXg
 
 #xxx
 __PACKAGE__->add_columns(
