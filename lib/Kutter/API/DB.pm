@@ -5,8 +5,8 @@ use Kutter::Schema;
 with 'Kutter::API::Role';
 
 sub schema {
-    return Kutter::Schema->connect(
-        'dbi:SQLite:dbname=' . path_to("db/kutter.db") );
+    my $self = shift;
+    return Kutter::Schema->connect( @{ $self->config->{connect_info} } );
 }
 
 1;

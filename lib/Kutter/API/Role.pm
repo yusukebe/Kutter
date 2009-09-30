@@ -8,4 +8,9 @@ sub path_to {
     return Kutter::Web->path_to( $file );
 }
 
+#xxx
+sub config {
+    return Kutter::Web->config();
+}
+
 1;
