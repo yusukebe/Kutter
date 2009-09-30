@@ -2,6 +2,7 @@
 #ft { margin: 20px 0; }
 p.tweet { font-size: 14px; }
 p.tweet img { padding: 1px; border: 1px solid #999; }
+span.tweet-date { font-size: 11px; }
 
 /* tag cloud */
 #htmltagcloud {  text-align: center;  line-height: 1; }
