@@ -1,3 +1,6 @@
+<h2>[% foods.next.name | html %]をKutter!</h2>
+[% undef = foods.reset -%]
+
 [% WHILE ( food = foods.next ) -%]
 [% SET tweet = food.tweet -%]
 [% INCLUDE module_tweet.tt2 %]
