@@ -1,4 +1,5 @@
-#pager { margin: 20px; 0; }
+#pager { margin: 20px; 0; font-size: 16px; }
+#ft { margin: 20px 0; }
 
 /* tag cloud */
 #htmltagcloud {  text-align: center;  line-height: 1; }
